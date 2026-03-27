@@ -1,20 +1,20 @@
-def hey(phrase):
-	# clean any whitespaces 
-	phrase = phrase.strip()
+def response(phrase):
+    # clean any whitespaces
+    phrase = phrase.strip()
 
-	if not phrase:
-		return 'Fine. Be that way!'
-	
-	is_upper = phrase.isupper()
-	has_question_mark = phrase.endswith("?")
+    if not phrase:
+        return "Fine. Be that way!"
 
-	if is_upper and has_question_mark:
-		return 'Calm down, I know what I\'m doing!'
+    is_upper = phrase.isupper()
+    has_question_mark = phrase.endswith("?")
 
-	if has_question_mark:
-		return 'Sure.'
+    if is_upper and has_question_mark:
+        return "Calm down, I know what I'm doing!"
 
-	if is_upper:
-		return 'Whoa, chill out!'
+    if has_question_mark:
+        return "Sure."
 
-	return 'Whatever.'
+    if is_upper:
+        return "Whoa, chill out!"
+
+    return "Whatever."
