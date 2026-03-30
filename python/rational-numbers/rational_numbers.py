@@ -1,5 +1,5 @@
 from __future__ import division
-from math import pow, sqrt
+from math import pow
 from fractions import gcd
 
 
@@ -12,7 +12,7 @@ class Rational(object):
         return self.numer == other.numer and self.denom == other.denom
 
     def __repr__(self):
-        return '{}/{}'.format(self.numer, self.denom)
+        return "{}/{}".format(self.numer, self.denom)
 
     def __add__(self, other):
         return Rational((self.numer * other.denom + other.numer * self.denom), (self.denom * other.denom))
