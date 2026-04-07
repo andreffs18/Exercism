@@ -1,12 +1,15 @@
 from __future__ import division
 from math import pow
-from fractions import gcd
+from math import gcd
 
 
-class Rational(object):
-    def __init__(self, numer, denom):
-        self.numer = numer / gcd(numer, denom)
-        self.denom = denom / gcd(numer, denom)
+class Rational:
+    def __init__(self, numer: int, denom: int):
+        self.numer = int(numer / gcd(int(numer), int(denom)))
+        self.denom = int(denom / gcd(int(numer), int(denom)))
+        if numer < 0 or denom < 0:
+            self.numer = -1 * abs(self.numer)
+            self.denom = abs(self.denom)
 
     def __eq__(self, other):
         return self.numer == other.numer and self.denom == other.denom
@@ -24,7 +27,10 @@ class Rational(object):
         return Rational((self.numer * other.numer), (self.denom * other.denom))
 
     def __truediv__(self, other):
-        return Rational((self.numer * other.denom), (other.numer * self.denom))
+        if (self.numer < 0 and other.numer < 0) or (self.numer > 0 and other.numer > 0):
+            return Rational(abs(self.numer * other.denom), abs(self.denom * other.numer))
+        else:
+            return Rational(-1 * abs(self.numer * other.denom), abs(self.denom * other.numer))
 
     def __abs__(self):
         return Rational(abs(self.numer), abs(self.denom))
