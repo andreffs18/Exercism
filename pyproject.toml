@@ -1,0 +1,14 @@
+[project]
+name = "exercism"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pytest>=9.0.2",
+    "ruff>=0.15.7",
+]
+
+[tool.ruff]
+# Allow lines to be as long as 120.
+line-length = 120
